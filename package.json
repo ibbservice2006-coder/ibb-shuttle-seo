@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "sh scripts/build.sh",
+    "preinstall": "npm config set legacy-peer-deps true",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
