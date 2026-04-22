@@ -2,7 +2,7 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import fs from "fs";
-import { componentTagger } from "lovable-tagger";
+// import { componentTagger } from "lovable-tagger";
 import { createRequire } from "module";
 import { fileURLToPath } from "url";
 
@@ -208,7 +208,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     seoPrebuildPlugin(),
     react(),
-    mode === "development" && componentTagger(),
+    // mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {

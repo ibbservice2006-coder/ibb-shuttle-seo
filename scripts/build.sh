@@ -7,11 +7,16 @@ set -e
 # ============================================
 
 echo "🔨 Step 1: Generate static SEO pages (Level 0)"
+# Ensure we are in the project root
+cd "$(dirname "$0")/.."
+
+# Run SEO build
 node seo/build-seo.js
 
 echo ""
 echo "🔨 Step 2: Vite build (SPA - Level 1+)"
-npx vite build
+# Use npm or npx to run vite build
+npm run build || npx vite build
 
 echo ""
 echo "✅ Build complete!"
