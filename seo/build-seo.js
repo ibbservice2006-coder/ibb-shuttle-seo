@@ -183,7 +183,7 @@ const portalTemplate = fs.readFileSync(portalTemplatePath, 'utf-8');
 console.log('🔨 Generating Level 0 static HTML (Landing pages)...');
 
 for (const lang of LANGUAGES) {
-  const i18nPath = path.join(__dirname, 'i18n', `${lang}.json`);
+  const i18nPath = path.join(__dirname, 'i18N', `${lang}.json`);
   
   if (!fs.existsSync(i18nPath)) {
     console.error(`❌ Missing i18n file: ${i18nPath}`);
@@ -307,7 +307,7 @@ for (const lang of LANGUAGES) {
 console.log('🔨 Generating Level 0 static HTML (Pricing pages)...');
 
 for (const lang of LANGUAGES) {
-  const i18nPath = path.join(__dirname, 'i18n', `${lang}.json`);
+  const i18nPath = path.join(__dirname, 'i18N', `${lang}.json`);
   // i18n file already validated in landing loop above
   const data = JSON.parse(fs.readFileSync(i18nPath, 'utf-8'));
   const flatData = flatten(data);
@@ -422,7 +422,7 @@ for (const lang of LANGUAGES) {
 console.log('🔨 Generating Level 0 static HTML (Partners pages)...');
 
 for (const lang of LANGUAGES) {
-  const i18nPath = path.join(__dirname, 'i18n', `${lang}.json`);
+  const i18nPath = path.join(__dirname, 'i18N', `${lang}.json`);
   const data = JSON.parse(fs.readFileSync(i18nPath, 'utf-8'));
   const flatData = flatten(data);
 
@@ -479,7 +479,7 @@ for (const lang of LANGUAGES) {
 console.log('🔨 Generating Level 0 static HTML (Tracking pages)...');
 
 for (const lang of LANGUAGES) {
-  const i18nPath = path.join(__dirname, 'i18n', `${lang}.json`);
+  const i18nPath = path.join(__dirname, 'i18N', `${lang}.json`);
   const data = JSON.parse(fs.readFileSync(i18nPath, 'utf-8'));
   const flatData = flatten(data);
 
@@ -645,7 +645,7 @@ console.log('  ✅ robots.txt');
 console.log('🔨 Generating Level 0 static HTML (404 pages × 13 languages)...');
 
 for (const lang of LANGUAGES) {
-  const i18nPath = path.join(__dirname, 'i18n', `${lang}.json`);
+  const i18nPath = path.join(__dirname, 'i18N', `${lang}.json`);
   const data = JSON.parse(fs.readFileSync(i18nPath, 'utf-8'));
   const flatData = flatten(data);
 
@@ -675,7 +675,7 @@ for (const lang of LANGUAGES) {
 // Also generate root 404.html (English fallback for non-language paths)
 console.log('🔨 Generating root 404.html (English fallback)...');
 
-const enData = JSON.parse(fs.readFileSync(path.join(__dirname, 'i18n', 'en.json'), 'utf-8'));
+const enData = JSON.parse(fs.readFileSync(path.join(__dirname, 'i18N', 'en.json'), 'utf-8'));
 const enFlat = flatten(enData);
 let root404 = notFoundTemplate;
 for (const [key, value] of Object.entries(enFlat)) {
