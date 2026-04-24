@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
-import homeIcon from "@/assets/icons/home-icon.webp";
+// home-icon.webp removed as per user request
 import thaiCornerOrnament from "@/assets/thai-corner-ornament.png";
 
 interface HeaderProps {
@@ -26,7 +26,7 @@ const getBangkokTime = () => {
   };
 };
 
-const Header = ({ icon = homeIcon, iconAlt = "Home" }: HeaderProps) => {
+const Header = ({ icon, iconAlt = "Home" }: HeaderProps) => {
   const [time, setTime] = useState(getBangkokTime);
 
   // Level 2: Activate live ticking after mount
