@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBB Shuttle Service — Theo dõi xe của bạn</title>
+  <meta name="description" content="Theo dõi vị trí xe đưa đón của bạn trong thời gian thực. Nhập mã đặt xe để xem vị trí GPS trực tiếp, thông tin tài xế và thời gian đến dự kiến.">
+  <link rel="canonical" href="https://ibbservice.com/vi/tracking/">
+
+  <!-- hreflang × 13 + x-default -->
+  <link rel="alternate" hreflang="en" href="https://ibbservice.com/en/tracking/">
+  <link rel="alternate" hreflang="th" href="https://ibbservice.com/th/tracking/">
+  <link rel="alternate" hreflang="zh" href="https://ibbservice.com/zh/tracking/">
+  <link rel="alternate" hreflang="ja" href="https://ibbservice.com/ja/tracking/">
+  <link rel="alternate" hreflang="ko" href="https://ibbservice.com/ko/tracking/">
+  <link rel="alternate" hreflang="ru" href="https://ibbservice.com/ru/tracking/">
+  <link rel="alternate" hreflang="ar" href="https://ibbservice.com/ar/tracking/">
+  <link rel="alternate" hreflang="de" href="https://ibbservice.com/de/tracking/">
+  <link rel="alternate" hreflang="fr" href="https://ibbservice.com/fr/tracking/">
+  <link rel="alternate" hreflang="es" href="https://ibbservice.com/es/tracking/">
+  <link rel="alternate" hreflang="id" href="https://ibbservice.com/id/tracking/">
+  <link rel="alternate" hreflang="hi" href="https://ibbservice.com/hi/tracking/">
+  <link rel="alternate" hreflang="vi" href="https://ibbservice.com/vi/tracking/">
+  <link rel="alternate" hreflang="x-default" href="https://ibbservice.com/en/tracking/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="IBB Shuttle Service — Theo dõi xe của bạn">
+  <meta property="og:description" content="Theo dõi vị trí xe đưa đón của bạn trong thời gian thực. Nhập mã đặt xe để xem vị trí GPS trực tiếp, thông tin tài xế và thời gian đến dự kiến.">
+  <meta property="og:url" content="https://ibbservice.com/vi/tracking/">
+  <meta property="og:image" content="https://ibbservice.com/seo/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,sans-serif;color:#1a1a2e;background:#f8f8f8;min-height:100vh;display:flex;flex-direction:column}
+    a{color:#b8860b;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Header */
+    header{background:#1a1a2e;padding:1rem 0;text-align:center}
+    header .brand{color:#d4af37;font-size:1.25rem;font-weight:600}
+
+    /* Nav */
+    nav{background:#2d3748;padding:0.5rem 0;text-align:center}
+    nav a{color:#d4af37;margin:0 1rem;font-size:0.95rem}
+
+    /* Main Content */
+    main{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem 1rem}
+    .tracking-card{background:#fff;border-radius:0.75rem;box-shadow:0 4px 20px rgba(0,0,0,0.08);max-width:420px;width:100%;padding:2.5rem 2rem}
+    .tracking-icon{width:64px;height:64px;border-radius:50%;background:rgba(212,175,55,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2rem}
+    .tracking-card h1{font-size:1.5rem;text-align:center;margin-bottom:0.5rem;color:#1a1a2e}
+    .tracking-card .subtitle{text-align:center;color:#666;font-size:0.95rem;margin-bottom:2rem}
+    .form-group{margin-bottom:1rem}
+    .form-group label{display:block;font-size:0.85rem;color:#666;margin-bottom:0.25rem}
+    .form-input{width:100%;padding:0.75rem 1rem;border:2px solid #e2e8f0;border-radius:0.5rem;font-size:1rem;text-align:center;outline:none;transition:border-color 0.2s}
+    .form-input:focus{border-color:#d4af37}
+    .form-input::placeholder{color:#a0aec0}
+    .submit-btn{width:100%;padding:0.75rem;background:#d4af37;color:#1a1a2e;border:none;border-radius:0.5rem;font-size:1rem;font-weight:600;cursor:pointer;margin-top:0.5rem}
+    .submit-btn:hover{background:#c9a030}
+
+    /* Info section */
+    .tracking-info{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #eee}
+    .tracking-info h2{font-size:1.1rem;margin-bottom:1rem;color:#1a1a2e}
+    .info-list{list-style:none;padding:0}
+    .info-list li{padding:0.5rem 0;color:#666;font-size:0.9rem;display:flex;align-items:center;gap:0.5rem}
+    .info-list li::before{content:"✓";color:#d4af37;font-weight:bold}
+
+    /* Footer */
+    footer{background:#1a1a2e;color:#d4af37;padding:1.5rem 1rem;text-align:center}
+    footer p{margin:0.25rem 0;font-size:0.85rem}
+    footer a{color:#d4af37}
+
+    /* RTL */
+    [dir="rtl"]{text-align:right}
+    [dir="rtl"] .tracking-card h1,[dir="rtl"] .tracking-card .subtitle{text-align:center}
+    [dir="rtl"] .form-input{text-align:center}
+    [dir="rtl"] .info-list li{flex-direction:row-reverse}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">IBB Shuttle Service</div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="/vi/">Trang chủ</a>
+    <a href="/vi/tracking/">Theo dõi xe</a>
+    <a href="/vi/#booking">Đặt ngay</a>
+  </nav>
+
+  <main>
+    <div class="tracking-card">
+      <div class="tracking-icon">📍</div>
+      <h1>Theo dõi xe của bạn</h1>
+      <p class="subtitle">Nhập mã đặt xe để xem vị trí xe trong thời gian thực.</p>
+
+      <form action="/tracking" method="GET">
+        <div class="form-group">
+          <label for="booking">Mã đặt xe</label>
+          <input type="text" id="booking" name="booking" class="form-input" placeholder="VD: IBB-20250101-1234" required>
+        </div>
+        <button type="submit" class="submit-btn">Theo dõi xe</button>
+      </form>
+
+      <div class="tracking-info">
+        <h2>Bạn có thể theo dõi</h2>
+        <ul class="info-list">
+          <li>Vị trí GPS xe trong thời gian thực</li>
+          <li>Thông tin và liên hệ tài xế</li>
+          <li>Thời gian đến dự kiến</li>
+          <li>Cập nhật lộ trình và trạng thái chuyến đi</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>5 Soi Takham 20 Yaek 8 Takham Road Bangkuntien Bangkok Thailand 10150</p>
+    <p>Phone: <a href="tel:+66661654629">+66-66-165-4629</a> | Email: <a href="mailto:support@ibbshuttleservice.com">support@ibbshuttleservice.com</a></p>
+    <p>&copy; 2025 IBB Shuttle Service. Bảo lưu mọi quyền.</p>
+  </footer>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "IBB Shuttle Service — Theo dõi xe của bạn",
+  "url": "https://ibbservice.com/vi/tracking/",
+  "description": "Theo dõi vị trí xe đưa đón của bạn trong thời gian thực. Nhập mã đặt xe để xem vị trí GPS trực tiếp, thông tin tài xế và thời gian đến dự kiến.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "IBB Shuttle Service",
+    "url": "https://ibbservice.com"
+  }
+}
+  </script>
+
+</body>
+</html>

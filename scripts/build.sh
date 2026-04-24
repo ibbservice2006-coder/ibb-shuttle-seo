@@ -10,7 +10,7 @@ echo "🔨 Step 1: Generate static SEO pages (Level 0)"
 # Ensure we are in the project root
 cd "$(dirname "$0")/.."
 # Run SEO build
-node seo/build-seo.js
+node seo/build-seo.cjs
 
 echo ""
 echo "🔨 Step 2: Vite build (SPA - Level 1+)"
