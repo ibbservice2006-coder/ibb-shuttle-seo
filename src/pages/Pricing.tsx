@@ -6,7 +6,6 @@ import StaticPricingAccordion from "@/components/pricing/StaticPricingAccordion"
 
 import { allTables, currencies, PriceRow, VehicleData } from "@/data/pricingDataComplete";
 import { cn } from "@/lib/utils";
-import pricingIcon from "@/assets/icons/pricing-icon.webp";
 import { Button } from "@/components/ui/button";
 import {
   Plane, Building2, Compass, Palmtree, Mountain, TreePine,
@@ -200,7 +199,7 @@ const PricingPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header icon={pricingIcon} iconAlt="Pricing" />
+      <Header />
       <PublicNavigation />
 
       {/* Static Hero */}
