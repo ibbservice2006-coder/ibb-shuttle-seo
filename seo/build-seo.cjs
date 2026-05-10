@@ -253,4 +253,62 @@ for (const lang of LANGUAGES) {
   console.log(`  ✅ ${lang}/404/index.html`);
 }
 
+// ============================================
+// GENERATE sitemap.xml
+// 1 portal + 13 langs × 4 page types = 53 URLs
+// Includes xhtml:link hreflang alternates per URL
+// NOTE: Update SITEMAP_LASTMOD when content changes
+// ============================================
+console.log('🔨 Generating sitemap.xml...');
+
+const SITEMAP_LASTMOD = '2026-01-03';
+// DOMAIN already declared at top of file: const DOMAIN = 'https://ibbservice.com'
+
+const sitemapPageTypes = [
+  { subpath: '',          changefreq: 'weekly',  priority: '0.9' },
+  { subpath: 'pricing/',  changefreq: 'weekly',  priority: '0.8' },
+  { subpath: 'partners/', changefreq: 'monthly', priority: '0.7' },
+  { subpath: 'tracking/', changefreq: 'monthly', priority: '0.6' },
+];
+
+function hreflangLinks(subpath) {
+  return LANGUAGES.map(l =>
+    `    <xhtml:link rel="alternate" hreflang="${l}" href="${DOMAIN}/${l}/${subpath}"/>`
+  ).join('\n') + '\n' +
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${DOMAIN}/en/${subpath}"/>`;
+}
+
+let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n';
+sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n';
+sitemap += '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n\n';
+
+sitemap += '  <!-- Portal: root URL -->\n';
+sitemap += '  <url>\n';
+sitemap += `    <loc>${DOMAIN}/</loc>\n`;
+sitemap += `    <lastmod>${SITEMAP_LASTMOD}</lastmod>\n`;
+sitemap += '    <changefreq>monthly</changefreq>\n';
+sitemap += '    <priority>1.0</priority>\n';
+sitemap += '  </url>\n\n';
+
+for (const { subpath, changefreq, priority } of sitemapPageTypes) {
+  const label = subpath || 'landing/';
+  sitemap += `  <!-- ${label}: 13 languages -->\n`;
+  for (const lang of LANGUAGES) {
+    sitemap += '  <url>\n';
+    sitemap += `    <loc>${DOMAIN}/${lang}/${subpath}</loc>\n`;
+    sitemap += `    <lastmod>${SITEMAP_LASTMOD}</lastmod>\n`;
+    sitemap += `    <changefreq>${changefreq}</changefreq>\n`;
+    sitemap += `    <priority>${priority}</priority>\n`;
+    sitemap += hreflangLinks(subpath) + '\n';
+    sitemap += '  </url>\n';
+  }
+  sitemap += '\n';
+}
+
+sitemap += '</urlset>\n';
+
+fs.writeFileSync(path.join(__dirname, '..', 'public', 'sitemap.xml'), sitemap, 'utf-8');
+const urlCount = (sitemap.match(/<loc>/g) || []).length;
+console.log(`  ✅ sitemap.xml (${urlCount} URLs)`);
+
 console.log('✅ SEO Level 0 Generation Complete!');
