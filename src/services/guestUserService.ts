@@ -1,4 +1,4 @@
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/ibb/client";
 
 const GUEST_USER_KEY = "ibb_guest_user_id";
 const GUEST_SESSION_KEY = "ibb_guest_session_token";

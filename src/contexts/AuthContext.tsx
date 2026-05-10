@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState, ReactNode } from 'react
 // Mocked User and Session types
 type User = any;
 type Session = any;
-import { supabase } from '@/integrations/supabase/client';
+import { supabase } from '@/integrations/ibb/client';
 
 interface AuthContextType {
   user: User | null;

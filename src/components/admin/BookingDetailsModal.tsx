@@ -18,8 +18,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { supabase } from "@/integrations/supabase/client";
-import { Tables } from "@/integrations/supabase/types";
+import { supabase } from "@/integrations/ibb/client";
+import { Tables } from "@/integrations/ibb/types";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
 import {

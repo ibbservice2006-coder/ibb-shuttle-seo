@@ -5,7 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useDriverRole } from "@/hooks/useDriverRole";
 import { useDriverNotifications } from "@/hooks/useDriverNotifications";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/ibb/client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
