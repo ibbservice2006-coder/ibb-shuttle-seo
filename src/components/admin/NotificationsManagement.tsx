@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/ibb/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -32,7 +32,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader2, Plus, Trash2, Send, Bell, Mail, MessageSquare, Phone } from "lucide-react";
 import { toast } from "sonner";
 import { format } from "date-fns";
-import type { Database } from "@/integrations/supabase/types";
+import type { Database } from "@/integrations/ibb/types";
 
 type NotificationChannel = Database["public"]["Enums"]["notification_channel"];
 

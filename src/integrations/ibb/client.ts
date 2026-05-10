@@ -1,4 +1,4 @@
-// Mock Supabase client for Neon DB transition
+// IBB API client stub — placeholder until Hono/Neon backend is ready
 export const supabase = {
   auth: {
     onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),

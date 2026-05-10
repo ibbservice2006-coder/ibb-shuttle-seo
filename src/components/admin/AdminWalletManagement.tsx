@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/ibb/client";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
 import { Wallet, Search, Check, X, RefreshCw, Loader2, ArrowDownLeft, DollarSign } from "lucide-react";

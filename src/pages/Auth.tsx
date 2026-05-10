@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Mail, Lock, User, Chrome, ArrowLeft, Eye, EyeOff } from 'lucide-react';
 import { z } from 'zod';
-import { supabase } from '@/integrations/supabase/client';
+import { supabase } from '@/integrations/ibb/client';
 import logo from '@/assets/logo.png';
 
 export default function Auth() {

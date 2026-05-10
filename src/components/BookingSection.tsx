@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { Calendar, MapPin, Users, Car, Clock, Loader2 } from "lucide-react";
 import { useLevel2Language } from "@/hooks/useLevel2Language";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/ibb/client";
 import { getOrCreateGuestUser } from "@/services/guestUserService";
 import BookingSuccessModal from "@/components/booking/BookingSuccessModal";
 import { toast } from "sonner";
