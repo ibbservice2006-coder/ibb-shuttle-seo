@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLevel2Language } from "@/hooks/useLevel2Language";
@@ -11,9 +11,13 @@ import type { Language } from "@/contexts/LanguageContext";
 // L2: Silent language swap after bootstrap
 // ============================================
 
+const VALID_LANGS: Language[] = ['en', 'th', 'zh', 'ja', 'ko', 'ru', 'ar', 'de', 'fr', 'es', 'id', 'hi', 'vi'];
+
 const PublicNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, language, ready, setLanguage, allLanguages } = useLevel2Language();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
     { name: t('nav.home', 'Home'), href: "/landing", isRoute: true },
@@ -25,7 +29,16 @@ const PublicNavigation = () => {
   ];
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLanguage(e.target.value as Language);
+    const newLang = e.target.value as Language;
+    setLanguage(newLang);
+
+    // If on /:lang/shuttle, update the URL lang segment too
+    const langShuttleMatch = location.pathname.match(
+      /^\/(en|th|zh|ja|ko|ru|ar|de|fr|es|id|hi|vi)\/(shuttle)$/
+    );
+    if (langShuttleMatch && VALID_LANGS.includes(newLang)) {
+      navigate(`/${newLang}/${langShuttleMatch[2]}`, { replace: true });
+    }
   };
 
   const LanguageSelector = ({ className = "" }: { className?: string }) => (
