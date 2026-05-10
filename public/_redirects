@@ -1,1 +1,57 @@
-/* /index.html 200
+# IBB Shuttle — Cloudflare Pages SPA fallback routing
+#
+# RULE: List ONLY known React SPA routes explicitly.
+# DO NOT use a wildcard (/* /index.html 200) — that would intercept
+# unknown paths like /rus and return HTTP 200 instead of 404,
+# violating SEO_LEVEL0_SPEC.md section 8.
+#
+# Cloudflare Pages serving priority:
+#   1. Static files (/{lang}/, /{lang}/pricing/, etc.) — served directly from dist/
+#   2. Rules below — only triggered when no static file matches
+#   3. 404.html — served with HTTP 404 for all unmatched paths
+#
+# LANGUAGES: en th zh ja ko ru ar de fr es id hi vi
+
+# ── Language-aware shuttle pages (Level 2 interactive) ──
+/en/shuttle    /index.html  200
+/th/shuttle    /index.html  200
+/zh/shuttle    /index.html  200
+/ja/shuttle    /index.html  200
+/ko/shuttle    /index.html  200
+/ru/shuttle    /index.html  200
+/ar/shuttle    /index.html  200
+/de/shuttle    /index.html  200
+/fr/shuttle    /index.html  200
+/es/shuttle    /index.html  200
+/id/shuttle    /index.html  200
+/hi/shuttle    /index.html  200
+/vi/shuttle    /index.html  200
+
+# ── Non-language public SPA routes ──
+/shuttle          /index.html  200
+/landing          /index.html  200
+/pricing          /index.html  200
+/portal           /index.html  200
+/partners         /index.html  200
+/tracking         /index.html  200
+/tracking/*       /index.html  200
+/guest-payment    /index.html  200
+/voucher          /index.html  200
+
+# ── Private/authenticated SPA routes ──
+/auth             /index.html  200
+/auth/*           /index.html  200
+/dashboard        /index.html  200
+/dashboard/*      /index.html  200
+/admin            /index.html  200
+/admin/*          /index.html  200
+/driver           /index.html  200
+/driver/*         /index.html  200
+/driver-dashboard        /index.html  200
+/driver-dashboard/*      /index.html  200
+/partner-dashboard        /index.html  200
+/partner-dashboard/*      /index.html  200
+/balance          /index.html  200
+/balance/*        /index.html  200
+/reset-password   /index.html  200
+/reset-password/* /index.html  200
