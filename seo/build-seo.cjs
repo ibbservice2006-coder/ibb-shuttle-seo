@@ -91,7 +91,7 @@ function flatten(obj, prefix = '') {
 console.log('🔨 Generating Level 0 static HTML (Landing pages)...');
 
 for (const lang of LANGUAGES) {
-  const i18nPath = path.join(__dirname, 'i18N', `${lang}.json`);
+  const i18nPath = path.join(__dirname, 'i18n', `${lang}.json`);
   const data = JSON.parse(fs.readFileSync(i18nPath, 'utf-8'));
   const flatData = flatten(data);
   
@@ -139,7 +139,7 @@ for (const lang of LANGUAGES) {
 // ============================================
 console.log('🔨 Generating Level 0 static HTML (Pricing pages)...');
 for (const lang of LANGUAGES) {
-  const i18nPath = path.join(__dirname, 'i18N', `${lang}.json`);
+  const i18nPath = path.join(__dirname, 'i18n', `${lang}.json`);
   const data = JSON.parse(fs.readFileSync(i18nPath, 'utf-8'));
   const flatData = flatten(data);
   const pricingTablesHTML = generateAllPricingHTML(lang);
@@ -180,7 +180,7 @@ for (const lang of LANGUAGES) {
 // ============================================
 console.log('🔨 Generating Level 0 static HTML (Partners pages)...');
 for (const lang of LANGUAGES) {
-  const i18nPath = path.join(__dirname, 'i18N', `${lang}.json`);
+  const i18nPath = path.join(__dirname, 'i18n', `${lang}.json`);
   const data = JSON.parse(fs.readFileSync(i18nPath, 'utf-8'));
   const flatData = flatten(data);
   let html = partnersTemplate;
@@ -206,7 +206,7 @@ for (const lang of LANGUAGES) {
 // ============================================
 console.log('🔨 Generating Level 0 static HTML (Tracking pages)...');
 for (const lang of LANGUAGES) {
-  const i18nPath = path.join(__dirname, 'i18N', `${lang}.json`);
+  const i18nPath = path.join(__dirname, 'i18n', `${lang}.json`);
   const data = JSON.parse(fs.readFileSync(i18nPath, 'utf-8'));
   const flatData = flatten(data);
   let html = trackingTemplate;
@@ -232,7 +232,7 @@ for (const lang of LANGUAGES) {
 // ============================================
 console.log('🔨 Generating Level 0 static HTML (404 pages)...');
 for (const lang of LANGUAGES) {
-  const i18nPath = path.join(__dirname, 'i18N', `${lang}.json`);
+  const i18nPath = path.join(__dirname, 'i18n', `${lang}.json`);
   const data = JSON.parse(fs.readFileSync(i18nPath, 'utf-8'));
   const flatData = flatten(data);
   let html = notFoundTemplate;
