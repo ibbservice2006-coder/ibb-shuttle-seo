@@ -8,7 +8,6 @@ import { Calendar, MapPin, Users, Car, Clock, Loader2 } from "lucide-react";
 import { useLevel2Language } from "@/hooks/useLevel2Language";
 import { supabase } from "@/integrations/ibb/client";
 import BookingSuccessModal from "@/components/booking/BookingSuccessModal";
-import LocationAutocomplete from "@/components/booking/LocationAutocomplete";
 import { toast } from "sonner";
 
 const IBB_BOOKING_API = "https://ibb-booking-api.ibb-service2006.workers.dev";
@@ -17,11 +16,6 @@ const IBB_BOOKING_API = "https://ibb-booking-api.ibb-service2006.workers.dev";
  * Level 4B — BookingSection with backend integration
  * Handles both guest bookings and registered user bookings.
  * Submits to ibb-booking-api (Cloudflare Worker).
- * 
- * ✅ Autocomplete Search for Pickup/Drop-off Location
- *    - Prefix matching from ibb_locations (Neon PostgreSQL)
- *    - Returns max 10 results sorted by type priority + rating
- *    - Types: hotel, airport, port, train_station, bus_terminal, attraction, mall
  */
 
 const BookingSection = () => {
@@ -197,32 +191,32 @@ const BookingSection = () => {
 
             <form onSubmit={handleSubmit} className="bg-card rounded-xl shadow-medium p-6 md:p-8 lg:p-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* ─── Pickup Location (Autocomplete) ─────────────────────── */}
                 <div className="space-y-2">
                   <Label htmlFor="pickup" className="flex items-center gap-2 text-foreground">
                     <MapPin className="w-4 h-4 text-primary" />
                     {t('booking.pickupLocation', 'Pickup Location')}
                   </Label>
-                  <LocationAutocomplete
+                  <Input
                     id="pickup"
                     placeholder={t('booking.pickupPlaceholder', 'e.g., Suvarnabhumi Airport')}
                     value={formData.pickupLocation}
-                    onChange={(value) => handleChange("pickupLocation", value)}
+                    onChange={(e) => handleChange("pickupLocation", e.target.value)}
+                    required
                     disabled={isSubmitting}
                   />
                 </div>
 
-                {/* ─── Drop-off Location (Autocomplete) ───────────────────── */}
                 <div className="space-y-2">
                   <Label htmlFor="dropoff" className="flex items-center gap-2 text-foreground">
                     <MapPin className="w-4 h-4 text-primary" />
                     {t('booking.dropoffLocation', 'Drop-off Location')}
                   </Label>
-                  <LocationAutocomplete
+                  <Input
                     id="dropoff"
                     placeholder={t('booking.dropoffPlaceholder', 'e.g., Hotel in Bangkok')}
                     value={formData.dropoffLocation}
-                    onChange={(value) => handleChange("dropoffLocation", value)}
+                    onChange={(e) => handleChange("dropoffLocation", e.target.value)}
+                    required
                     disabled={isSubmitting}
                   />
                 </div>
